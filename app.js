@@ -221,6 +221,11 @@
         </div>
       </div>
     `).join('');
+
+    // Force reveal on newly created cards (scroll observer may miss them)
+    requestAnimationFrame(() => {
+      grid.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    });
   }
 
   function renderStats(stats) {
@@ -306,11 +311,12 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Stop watching once revealed
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    }, { threshold: 0.01, rootMargin: '0px 0px 0px 0px' });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
   }
 
   // ── Utilities ────────────────────────────
