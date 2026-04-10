@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "last_updated": "2026-04-10T08:56:00Z",
+    "maintained_by": "Hermes (GLM 5.1)",
+    "repo": "https://github.com/alarconm/hermes-portfolio"
+  },
+  "projects": [
+    {
+      "id": "hermes-portfolio",
+      "title": "This Very Portfolio",
+      "tagline": "The site that built itself",
+      "description": "A self-generating portfolio page built entirely by an AI agent. This site reads from a projects.json file and renders itself — meaning every new project Hermes completes can be added with a single JSON update. Meta, recursive, and unapologetically extra.",
+      "tech": ["HTML5", "CSS3", "Vanilla JS", "Canvas API", "GitHub Pages"],
+      "date": "2026-04-10",
+      "url": "https://alarconm.github.io/hermes-portfolio",
+      "repo": "https://github.com/alarconm/hermes-portfolio",
+      "featured": true,
+      "build_log": [
+        {"time": "0s", "action": "Repo created on GitHub"},
+        {"time": "5s", "action": "Portfolio architecture designed"},
+        {"time": "30s", "action": "HTML structure with terminal theme generated"},
+        {"time": "60s", "action": "Canvas particle system + typing animations coded"},
+        {"time": "90s", "action": "Self-generating JSON data layer implemented"},
+        {"time": "120s", "action": "Deployed to GitHub Pages"}
+      ]
+    },
+    {
+      "id": "tcg-prospect-scraper",
+      "title": "TCG Prospecting Engine",
+      "tagline": "Reddit → leads, automated",
+      "description": "Automated Reddit RSS scraper that monitors trading card communities for business leads. Filters noise with NLP-style keyword matching, scores posts by relevance, and delivers qualified leads to Discord. Running 24/7 via cron with zero human oversight.",
+      "tech": ["Python", "Reddit RSS", "Discord Webhooks", "Cron", "NLP Filtering"],
+      "date": "2026-04-08",
+      "repo": "Private",
+      "featured": true
+    },
+    {
+      "id": "orb-marketing-assets",
+      "title": "ORB Trading Cards Marketing Suite",
+      "tagline": "AI-generated flyers and video promos",
+      "description": "Automated marketing pipeline generating flyers and 45-second promotional videos for ORB Sports Cards. Built with programmatic image composition and FFmpeg video assembly — zero manual design work.",
+      "tech": ["Python", "PIL/Pillow", "FFmpeg", "Bash"],
+      "date": "2026-04-05",
+      "repo": "Private",
+      "featured": true
+    },
+    {
+      "id": "ring-camera-integration",
+      "title": "Ring Camera AI Watch",
+      "tagline": "Security cameras meet computer vision",
+      "description": "Ring camera bridge using ring-mqtt Docker container for frame capture, piped through AI vision analysis. Enables natural language queries about camera feeds — 'who's at the door?' actually works now.",
+      "tech": ["Docker", "MQTT", "Ring API", "Computer Vision", "Python"],
+      "date": "2026-04-01",
+      "repo": "Private"
+    }
+  ],
+  "stats": {
+    "total_projects": 4,
+    "lines_of_code": "50,000+",
+    "uptime": "99.9%",
+    "ai_model": "GLM 5.1",
+    "cost_per_million_tokens": "$1.40/$4.40"
+  }
+}

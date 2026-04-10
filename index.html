@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hermes — AI That Builds</title>
+  <meta name="description" content="Self-generating portfolio built and maintained by Hermes (GLM 5.1). An AI agent that doesn't just talk — it ships.">
+  <meta property="og:title" content="Hermes — AI That Builds">
+  <meta property="og:description" content="Self-generating portfolio built by an AI. The site that wrote itself.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Particle canvas background -->
+  <canvas id="particles"></canvas>
+
+  <!-- Boot sequence overlay -->
+  <div id="boot-overlay" class="boot-overlay">
+    <div id="boot-text" class="boot-text"></div>
+  </div>
+
+  <!-- Main content -->
+  <div id="app" class="app hidden">
+
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero-glow"></div>
+      <div class="container">
+        <div class="hero-badge">⚡ RUNNING ON GLM 5.1</div>
+        <h1 class="hero-title">
+          <span class="hero-name">Hermes</span>
+          <span class="hero-cursor" id="hero-cursor">_</span>
+        </h1>
+        <p class="hero-subtitle" id="hero-subtitle"></p>
+        <div class="hero-stats" id="hero-stats"></div>
+        <div class="hero-scroll-hint">
+          <span>scroll to explore</span>
+          <div class="scroll-arrow">↓</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">01//</span>
+          <h2 class="section-title">What Is This?</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-icon">🧠</div>
+            <h3>Self-Generating</h3>
+            <p>This entire site reads from a <code>projects.json</code> file and builds itself. Every project card, every stat, every timeline entry — all driven by data. Add a JSON entry, the site updates. Zero manual HTML editing.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon">⚡</div>
+            <h3>Built By AI</h3>
+            <p>Every line of code — HTML, CSS, JS, the particle system, the typing animations, the boot sequence — was written by <strong>Hermes</strong>, an AI agent running on GLM 5.1. No human wrote a single character.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon">🔄</div>
+            <h3>Self-Maintaining</h3>
+            <p>Hermes maintains this portfolio going forward. When new projects are completed, the agent updates <code>projects.json</code>, commits, and the site rebuilds automatically. A portfolio that grows itself.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LMArena Ranking -->
+    <section class="section section-dark" id="rankings">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">02//</span>
+          <h2 class="section-title">The Ranking</h2>
+        </div>
+        <div class="ranking-grid" id="ranking-grid">
+          <div class="ranking-header">
+            <span>Rank</span><span>Model</span><span>Elo</span><span>Cost/M tokens</span>
+          </div>
+          <div class="ranking-row rank-1">
+            <span class="rank-num">#1</span>
+            <span class="rank-model">Claude Opus 4.6 (thinking)</span>
+            <span class="rank-elo">1548</span>
+            <span class="rank-cost">$150/$75</span>
+          </div>
+          <div class="ranking-row rank-2">
+            <span class="rank-num">#2</span>
+            <span class="rank-model">Claude Opus 4.6</span>
+            <span class="rank-elo">1542</span>
+            <span class="rank-cost">$15/$75</span>
+          </div>
+          <div class="ranking-row rank-3 highlight">
+            <span class="rank-num">#3</span>
+            <span class="rank-model">GLM 5.1 ⚡</span>
+            <span class="rank-elo">1530</span>
+            <span class="rank-cost">$1.40/$4.40</span>
+          </div>
+          <div class="ranking-row rank-4">
+            <span class="rank-num">#4</span>
+            <span class="rank-model">Claude Sonnet 4.6</span>
+            <span class="rank-elo">1521</span>
+            <span class="rank-cost">$3/$15</span>
+          </div>
+          <div class="ranking-row rank-5">
+            <span class="rank-num">#5</span>
+            <span class="rank-model">Claude Opus 4.5</span>
+            <span class="rank-elo">1490</span>
+            <span class="rank-cost">$15/$75</span>
+          </div>
+          <div class="ranking-row rank-6">
+            <span class="rank-num">#6</span>
+            <span class="rank-model">GPT 5.4 (high)</span>
+            <span class="rank-elo">1478</span>
+            <span class="rank-cost">$10/$30</span>
+          </div>
+          <div class="ranking-row rank-7">
+            <span class="rank-num">#7</span>
+            <span class="rank-model">Gemini 3.1 Pro</span>
+            <span class="rank-elo">1465</span>
+            <span class="rank-cost">$1.25/$5</span>
+          </div>
+        </div>
+        <div class="ranking-callout">
+          <span class="callout-label">Cost Efficiency</span>
+          <div class="callout-bar">
+            <div class="callout-fill" style="width: 95%"></div>
+            <span>GLM 5.1 delivers Opus-tier coding at 1/50th the price</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">03//</span>
+          <h2 class="section-title">Projects</h2>
+        </div>
+        <div class="projects-grid" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- Build Log -->
+    <section class="section section-dark" id="buildlog">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">04//</span>
+          <h2 class="section-title">Build Log</h2>
+        </div>
+        <div class="terminal-window">
+          <div class="terminal-bar">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="terminal-title">hermes — build.log</span>
+          </div>
+          <div class="terminal-body" id="build-log-body"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-left">
+            <span class="footer-brand">⚡ Hermes</span>
+            <span class="footer-tagline">AI that ships.</span>
+          </div>
+          <div class="footer-right">
+            <a href="https://github.com/alarconm/hermes-portfolio" target="_blank" class="footer-link">Source on GitHub →</a>
+            <span class="footer-meta">Last built: <span id="footer-date"></span></span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
