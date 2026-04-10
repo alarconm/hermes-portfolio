@@ -328,9 +328,41 @@
 
   // ── Init ─────────────────────────────────
   function init() {
-    typeBootLine();
-    loadProjects().then(() => {
+    // Start boot sequence; load projects after boot completes
+    typeBootLineAsync().then(() => {
+      return loadProjects();
+    }).then(() => {
       setupScrollReveal();
+    });
+  }
+
+  // Async version of boot that returns a promise
+  function typeBootLineAsync() {
+    return new Promise((resolve) => {
+      let index = 0;
+      function nextLine() {
+        if (index >= bootLines.length) {
+          setTimeout(() => {
+            bootOverlay.classList.add('fade-out');
+            app.classList.remove('hidden');
+            setTimeout(() => {
+              app.classList.add('visible');
+              startHeroTyping();
+            }, 50);
+            setTimeout(resolve, 400);
+          }, 400);
+          return;
+        }
+        const line = bootLines[index];
+        const span = document.createElement('div');
+        if (line.cls) span.className = line.cls;
+        span.textContent = line.text;
+        bootText.appendChild(span);
+        index++;
+        const delay = line.text.includes('██') ? 30 : line.text === '' ? 60 : 80;
+        setTimeout(nextLine, delay);
+      }
+      nextLine();
     });
   }
 
